@@ -1,7 +1,7 @@
 .app{
   display: grid;
   background-color: #dadbd3;
-  height: 100vh;
+  height: 102vh;
 }
 .app__body{
   display: flex;
