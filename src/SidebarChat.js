@@ -1,8 +1,9 @@
 import React,{ useEffect, useState } from "react";
 import { Avatar } from "@material-ui/core";
 import "./SidebarChat.css";
+import db from "./firebase";
 
-function SidebarChat({ addNewChat }){
+function SidebarChat({ id, name, addNewChat }){
     const [seed, setSeed] = useState("");
 
     useEffect(() => {
@@ -14,6 +15,9 @@ function SidebarChat({ addNewChat }){
 
         if(roomName){
             //do something
+            db.collection('rooms').add({
+                name: roomName,
+            });
         }
     };
 
@@ -26,9 +30,9 @@ function SidebarChat({ addNewChat }){
             </div>
         </div>
     ) : (
-        <div onClick={createChat} className="sidebarChat">
-            <h2>Add new Chat</h2>
-        </div>
+    <div onClick={createChat} className="sidebarChat">
+        <h2>Add new Chat</h2>
+    </div>
     );
 }
 
